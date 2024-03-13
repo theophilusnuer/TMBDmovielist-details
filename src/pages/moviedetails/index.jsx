@@ -31,11 +31,22 @@ export default function MovieDetails() {
             <div className="relative w-screen h-screen">
                 <img className='absolute inset-0 w-full h-full object-cover' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                 <div class="absolute inset-0 bg-black opacity-70"></div>
-                <img className='h-20 rounded-md' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+               
+                {/* Additional image at the left */}
+                <div className="absolute inset-0 mb-20 flex items-center">
+                    <img className='ml-6 h-3/4 md:w-1/2 rounded-lg shadow-lg max-w-80' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                </div>
+
+                 {/* text area for title, release date, tagline and overview */}
+                 <div className="absolute left-1/4 top-1/3 ml-20 text-white mr-6 text-left">
+                    <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
+                    <span className="text-lg mb-2 italic">{movie.release_date}</span>
+                    <span className="text-lg mb-2 block">{movie.tagline}</span>
+                    <span className="text-lg">{movie.overview}</span>
+                </div>
             </div>
-            <h1>{movie.title}</h1>
-            <p>{movie.tagline}</p>
-            <p>{movie.overview}</p>
+
+        
             <p className="">ratings</p>
             release date
             reviews
